@@ -23,6 +23,7 @@
 		C711CE1518F5DC340000FAA1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C711CDF118F5DC340000FAA1 /* UIKit.framework */; };
 		C711CE1D18F5DC340000FAA1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C711CE1B18F5DC340000FAA1 /* InfoPlist.strings */; };
 		C711CE1F18F5DC340000FAA1 /* Where_is_ISSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C711CE1E18F5DC340000FAA1 /* Where_is_ISSTests.m */; };
+		C793EE1818F88769001FB8CE /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C793EE1718F88769001FB8CE /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,7 @@
 		C711CE1A18F5DC340000FAA1 /* Where is ISSTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Where is ISSTests-Info.plist"; sourceTree = "<group>"; };
 		C711CE1C18F5DC340000FAA1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C711CE1E18F5DC340000FAA1 /* Where_is_ISSTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Where_is_ISSTests.m; sourceTree = "<group>"; };
+		C793EE1718F88769001FB8CE /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +69,7 @@
 			files = (
 				C711CDF018F5DC340000FAA1 /* CoreGraphics.framework in Frameworks */,
 				C711CDF218F5DC340000FAA1 /* UIKit.framework in Frameworks */,
+				C793EE1818F88769001FB8CE /* MapKit.framework in Frameworks */,
 				C711CDEE18F5DC340000FAA1 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -106,6 +109,7 @@
 		C711CDEC18F5DC340000FAA1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C793EE1718F88769001FB8CE /* MapKit.framework */,
 				C711CDED18F5DC340000FAA1 /* Foundation.framework */,
 				C711CDEF18F5DC340000FAA1 /* CoreGraphics.framework */,
 				C711CDF118F5DC340000FAA1 /* UIKit.framework */,
@@ -208,6 +212,13 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Patrik Lindborg";
 				TargetAttributes = {
+					C711CDE918F5DC340000FAA1 = {
+						SystemCapabilities = {
+							com.apple.iOS = {
+								enabled = 1;
+							};
+						};
+					};
 					C711CE1018F5DC340000FAA1 = {
 						TestTargetID = C711CDE918F5DC340000FAA1;
 					};
@@ -481,6 +492,7 @@
 				C711CE2418F5DC340000FAA1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C711CE2518F5DC340000FAA1 /* Build configuration list for PBXNativeTarget "Where is ISSTests" */ = {
 			isa = XCConfigurationList;
@@ -489,6 +501,7 @@
 				C711CE2718F5DC340000FAA1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

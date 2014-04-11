@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MapKit/MapKit.h>
 
 @interface PLGFirstViewController : UIViewController
+- (IBAction)onGetCurrentLocation:(id)sender;
+
+@property (weak, nonatomic) IBOutlet UILabel *label;
 
 @end
