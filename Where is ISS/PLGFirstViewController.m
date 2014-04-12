@@ -60,8 +60,6 @@
             latitude = [position objectForKey:@"latitude"];
             longitude = [position objectForKey:@"longitude"];
             
-            NSLog(@"Iss_position:%@",[object objectForKey:@"iss_position"]);
-            NSLog(@"%@", @"We have a dictionary");
         }
         else
         {
@@ -72,15 +70,17 @@
     {
         NSLog(@"%@", @"WTF");
     }
+     CLLocationCoordinate2D coord = CLLocationCoordinate2DMake([latitude doubleValue], [longitude doubleValue]);
+    NSString *coordStr = [NSString stringWithFormat:@"Lat: %@%@ Long: %@", latitude, @" ", longitude];
     
-    NSString *coord = [NSString stringWithFormat:@"%@%@%@", latitude, @"\n", longitude];
+    MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
+    [annotation setCoordinate:coord];
+    [annotation setTitle:@"International Space Station"]; 
+    [annotation setSubtitle:coordStr/*@"International Space Station"*/];
+    [self.mapView addAnnotation:annotation];
     
     
+    self.label.text = coordStr;
     
-    
-    
-    self.label.text = coord;
-    
-    NSLog(@"Button");
 }
 @end
