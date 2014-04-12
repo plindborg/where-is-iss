@@ -30,9 +30,7 @@
 - (IBAction)onGetCurrentLocation:(id)sender {
     self.label.text = @"pressed";
     CLLocationCoordinate2D coord = self.getCoordinates;
-
-    
-    
+  
     NSString *coordStr = [NSString stringWithFormat:@"Lat: %.5f%@ Long: %.5f", coord.latitude, @" ", coord.longitude];
     
     MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
@@ -41,9 +39,7 @@
     [annotation setSubtitle:coordStr/*@"International Space Station"*/];
     [self.mapView addAnnotation:annotation];
     
-    
     self.label.text = coordStr;
-    
 }
 
 -(CLLocationCoordinate2D)getCoordinates {
@@ -60,6 +56,7 @@
     NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     NSString *latitude;
     NSString *longitude;
+    CLLocationCoordinate2D coord;
     
     if(NSClassFromString(@"NSJSONSerialization"))
     {
@@ -76,7 +73,7 @@
             NSDictionary *position = [object objectForKey:@"iss_position"];
             latitude = [position objectForKey:@"latitude"];
             longitude = [position objectForKey:@"longitude"];
-            
+             coord = CLLocationCoordinate2DMake([latitude doubleValue], [longitude doubleValue]);
         }
         else
         {
@@ -87,8 +84,6 @@
     {
         NSLog(@"%@", @"WTF");
     }
-    CLLocationCoordinate2D coord = CLLocationCoordinate2DMake([latitude doubleValue], [longitude doubleValue]);
-    
     return coord;
 }
 
