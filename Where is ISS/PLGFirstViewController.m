@@ -29,7 +29,24 @@
 
 - (IBAction)onGetCurrentLocation:(id)sender {
     self.label.text = @"pressed";
+    CLLocationCoordinate2D coord = self.getCoordinates;
+
     
+    
+    NSString *coordStr = [NSString stringWithFormat:@"Lat: %.5f%@ Long: %.5f", coord.latitude, @" ", coord.longitude];
+    
+    MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
+    [annotation setCoordinate:coord];
+    [annotation setTitle:@"International Space Station"];
+    [annotation setSubtitle:coordStr/*@"International Space Station"*/];
+    [self.mapView addAnnotation:annotation];
+    
+    
+    self.label.text = coordStr;
+    
+}
+
+-(CLLocationCoordinate2D)getCoordinates {
     NSURL *url = [NSURL URLWithString: [NSString stringWithFormat:@"http://api.open-notify.org/iss-now.json"]];
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
@@ -43,7 +60,7 @@
     NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     NSString *latitude;
     NSString *longitude;
-
+    
     if(NSClassFromString(@"NSJSONSerialization"))
     {
         NSError *error = nil;
@@ -53,7 +70,7 @@
                      error:&error];
         
         if(error) { NSLog(@"%@", @"error in jason");}
-   
+        
         if([object isKindOfClass:[NSDictionary class]])
         {
             NSDictionary *position = [object objectForKey:@"iss_position"];
@@ -70,17 +87,9 @@
     {
         NSLog(@"%@", @"WTF");
     }
-     CLLocationCoordinate2D coord = CLLocationCoordinate2DMake([latitude doubleValue], [longitude doubleValue]);
-    NSString *coordStr = [NSString stringWithFormat:@"Lat: %@%@ Long: %@", latitude, @" ", longitude];
+    CLLocationCoordinate2D coord = CLLocationCoordinate2DMake([latitude doubleValue], [longitude doubleValue]);
     
-    MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
-    [annotation setCoordinate:coord];
-    [annotation setTitle:@"International Space Station"]; 
-    [annotation setSubtitle:coordStr/*@"International Space Station"*/];
-    [self.mapView addAnnotation:annotation];
-    
-    
-    self.label.text = coordStr;
-    
+    return coord;
 }
+
 @end

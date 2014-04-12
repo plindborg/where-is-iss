@@ -11,6 +11,7 @@
 
 @interface PLGFirstViewController : UIViewController
 - (IBAction)onGetCurrentLocation:(id)sender;
+-(CLLocationCoordinate2D)getCoordinates;
 
 @property (weak, nonatomic) IBOutlet UILabel *label;
 
