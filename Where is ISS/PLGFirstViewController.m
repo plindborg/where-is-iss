@@ -37,7 +37,17 @@
     [annotation setCoordinate:coord];
     [annotation setTitle:@"International Space Station"];
     [annotation setSubtitle:coordStr/*@"International Space Station"*/];
+
+    
     [self.mapView addAnnotation:annotation];
+    MKCoordinateRegion region;
+    MKCoordinateSpan span;
+    span.latitudeDelta = 100.01;
+    span.longitudeDelta = 100.01;
+    region.span = span;
+    region.center = coord;
+    [self.mapView setRegion:region animated:TRUE];
+    [self.mapView regionThatFits:region];
     
     self.label.text = coordStr;
 }
