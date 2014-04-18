@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreLocation/CoreLocation.h>
 
-@interface PLGSecondViewController : UIViewController
+@interface PLGSecondViewController : UIViewController <CLLocationManagerDelegate> {
+    CLLocationManager *locationManager;
+}
+
 
 @end
