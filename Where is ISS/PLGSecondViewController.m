@@ -61,20 +61,28 @@
         if(error) { NSLog(@"%@", @"error in jason");}
         
         NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init] ;
-        [dateFormatter setDateFormat:@"yyyy-MM-dd HH    :mm:ss"];
+        [dateFormatter setDateFormat:@"yyyy-MM-dd HH :mm:ss"];
 
         
         if([object isKindOfClass:[NSDictionary class]])
         {
             NSDictionary *position = [object objectForKey:@"response"];
+            NSMutableArray *myArray = [NSMutableArray array];
             for (NSDictionary *pos in position) {
                 NSString * timeStampString = pos[@"risetime"];
                 NSTimeInterval _interval=[timeStampString doubleValue];
                 NSDate *date = [NSDate dateWithTimeIntervalSince1970:_interval];
                 NSString *labelData = [dateFormatter stringFromDate:date];
+                [myArray addObject:labelData];
                 self.passTimes.text = labelData;
                 NSLog(@"%@ %@", date, pos[@"duration"] );
             }
+            NSString* text = @"";
+            for(int i = 0; i < myArray.count; i++){
+                text = [text stringByAppendingString:([myArray objectAtIndex:i])];
+                text = [text stringByAppendingString:@"\r\n"];
+            }
+            self.passTimes.text = text;
             [locationManager stopUpdatingLocation];
         }
         else
