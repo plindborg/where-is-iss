@@ -61,7 +61,7 @@
         if(error) { NSLog(@"%@", @"error in jason");}
         
         NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init] ;
-        [dateFormatter setDateFormat:@"yyyy-MM-dd HH :mm:ss"];
+        [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
 
         
         if([object isKindOfClass:[NSDictionary class]])
@@ -74,11 +74,12 @@
                 NSDate *date = [NSDate dateWithTimeIntervalSince1970:_interval];
                 NSString *labelData = [dateFormatter stringFromDate:date];
                 [myArray addObject:labelData];
-                self.passTimes.text = labelData;
+                //self.passTimes.text = labelData;
                 NSLog(@"%@ %@", date, pos[@"duration"] );
             }
             NSString* text = @"";
             for(int i = 0; i < myArray.count; i++){
+                NSLog(@"%@",text);
                 text = [text stringByAppendingString:([myArray objectAtIndex:i])];
                 text = [text stringByAppendingString:@"\r\n"];
             }
