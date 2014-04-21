@@ -75,14 +75,14 @@
                 NSString *labelData = [dateFormatter stringFromDate:date];
                 [myArray addObject:labelData];
                 //self.passTimes.text = labelData;
-                NSLog(@"%@ %@", date, pos[@"duration"] );
+                //NSLog(@"%@ %@", date, pos[@"duration"] );
             }
             NSString* text = @"";
             for(int i = 0; i < myArray.count; i++){
-                NSLog(@"%@",text);
                 text = [text stringByAppendingString:([myArray objectAtIndex:i])];
                 text = [text stringByAppendingString:@"\r\n"];
             }
+            NSLog(@"---%@---",text);
             self.passTimes.text = text;
             [locationManager stopUpdatingLocation];
         }
