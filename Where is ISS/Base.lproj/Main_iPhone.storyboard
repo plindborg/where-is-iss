@@ -82,7 +82,7 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Second" image="second" id="Z7h-1E-pvt"/>
+                    <tabBarItem key="tabBarItem" title="When will iss pass" image="second" id="Z7h-1E-pvt"/>
                     <connections>
                         <outlet property="passTimes" destination="MLI-hi-DcV" id="UJp-Kb-bBh"/>
                     </connections>
