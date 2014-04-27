@@ -40,7 +40,7 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="First" image="first" id="u1e-5L-l1D"/>
+                    <tabBarItem key="tabBarItem" title="Where is ISS" image="first" id="u1e-5L-l1D"/>
                     <connections>
                         <outlet property="label" destination="1h0-Ue-d9P" id="Myk-Tp-Zah"/>
                         <outlet property="mapView" destination="UAQ-Ih-tjd" id="bSk-k8-xpu"/>
